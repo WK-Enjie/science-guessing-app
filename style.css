@@ -1,9 +1,7 @@
 /* ========================================
-   SCIENCE CHARADES - STYLESHEET
-   Singapore Edition
+   SCIENCE CHARADES — STYLESHEET
    ======================================== */
 
-/* ---- RESET & BASE ---- */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -39,7 +37,7 @@ html, body {
 }
 
 /* ========================================
-   PARTICLES BACKGROUND
+   PARTICLES
    ======================================== */
 #particles {
     position: fixed;
@@ -100,13 +98,11 @@ html, body {
 .card::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
     background: radial-gradient(
         circle at 70% 20%,
-        rgba(79, 70, 229, 0.08) 0%,
+        rgba(79,70,229,0.08) 0%,
         transparent 60%
     );
     pointer-events: none;
@@ -296,7 +292,6 @@ html, body {
     flex: 1;
 }
 
-/* Pulse animation for ready button */
 .pulse {
     animation: pulse-anim 1.5s ease-in-out infinite;
 }
@@ -304,6 +299,128 @@ html, body {
 @keyframes pulse-anim {
     0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
     50%       { box-shadow: 0 0 0 14px rgba(16,185,129,0); }
+}
+
+/* ========================================
+   CHAPTER SELECT
+   ======================================== */
+.chapter-select {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    text-align: left;
+}
+
+.chapter-select h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-sub);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+#chapter-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 4px;
+    margin-bottom: 8px;
+}
+
+.chapter-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chapter-checkbox:hover {
+    border-color: var(--primary-light);
+}
+
+.chapter-checkbox.checked {
+    border-color: var(--success);
+    background: rgba(16,185,129,0.1);
+}
+
+.chapter-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--success);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.chapter-label {
+    flex: 1;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.chapter-meta {
+    font-size: 0.7rem;
+    color: var(--text-sub);
+    background: var(--bg-dark);
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+
+#chapter-load-status {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-sub);
+    min-height: 20px;
+}
+
+.select-all-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.select-all-btn {
+    background: none;
+    border: none;
+    color: var(--primary-light);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.select-all-btn:hover {
+    background: rgba(79,70,229,0.15);
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--border);
+    border-top: 2px solid var(--primary-light);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
 /* ========================================
@@ -341,10 +458,76 @@ html, body {
 }
 
 #upload-status {
-    display: block;
     margin-top: 8px;
     font-size: 0.82rem;
     color: var(--success);
+}
+
+#loaded-chapters {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.chapter-tag {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    animation: tag-in 0.3s ease;
+}
+
+@keyframes tag-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.chapter-tag .chapter-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-main);
+}
+
+.chapter-tag .chapter-count {
+    background: var(--primary);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.chapter-tag .chapter-remove {
+    background: none;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.chapter-tag .chapter-remove:hover {
+    background: rgba(239,68,68,0.15);
+}
+
+.chapter-summary {
+    text-align: center;
+    margin-top: 8px;
+    padding: 8px;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--success);
+    font-weight: 700;
 }
 
 /* ========================================
@@ -513,9 +696,7 @@ html, body {
     line-height: 1.4;
 }
 
-.rule p strong {
-    color: var(--text-main);
-}
+.rule p strong { color: var(--text-main); }
 
 .forbidden {
     color: var(--danger);
@@ -651,7 +832,7 @@ html, body {
 
 .the-word {
     font-family: 'Fredoka One', cursive;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     color: var(--text-main);
     line-height: 1.1;
     margin-bottom: 20px;
@@ -673,6 +854,7 @@ html, body {
     padding: 12px 16px;
     margin-bottom: 14px;
     border-left: 4px solid var(--secondary);
+    text-align: left;
 }
 
 .clue-label {
@@ -684,9 +866,9 @@ html, body {
 }
 
 .clue-text {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--text-sub);
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .forbidden-section {
@@ -734,9 +916,7 @@ html, body {
     max-width: 480px;
 }
 
-.game-actions .btn {
-    margin-bottom: 0;
-}
+.game-actions .btn { margin-bottom: 0; }
 
 .streak-bar {
     width: 100%;
@@ -757,16 +937,14 @@ html, body {
 /* ========================================
    REWARD SCREEN
    ======================================== */
-.reward-card {
-    text-align: center;
-}
+.reward-card { text-align: center; }
 
 .reward-header h2 {
     font-family: 'Fredoka One', cursive;
     font-size: 2.2rem;
     color: var(--success);
     margin-bottom: 6px;
-    animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: pop-in 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
 }
 
 @keyframes pop-in {
@@ -779,9 +957,7 @@ html, body {
     margin-bottom: 16px;
 }
 
-.reward-header strong {
-    color: var(--primary-light);
-}
+.reward-header strong { color: var(--primary-light); }
 
 .fun-fact {
     background: linear-gradient(135deg,
@@ -798,10 +974,7 @@ html, body {
     text-align: left;
 }
 
-.fact-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
+.fact-icon { font-size: 1.5rem; flex-shrink: 0; }
 
 #fun-fact-text {
     font-size: 0.88rem;
@@ -810,9 +983,7 @@ html, body {
 }
 
 /* ---- WHEEL ---- */
-.wheel-container {
-    margin-bottom: 16px;
-}
+.wheel-container { margin-bottom: 16px; }
 
 .wheel-container h3 {
     font-size: 1rem;
@@ -832,16 +1003,16 @@ html, body {
     height: 100%;
     border-radius: 50%;
     background: conic-gradient(
-        #ef4444   0deg  60deg,
-        #f59e0b  60deg 120deg,
-        #10b981 120deg 180deg,
-        #6366f1 180deg 240deg,
-        #06b6d4 240deg 300deg,
-        #ec4899 300deg 360deg
+        #ef4444   0deg   60deg,
+        #f59e0b  60deg  120deg,
+        #10b981 120deg  180deg,
+        #6366f1 180deg  240deg,
+        #06b6d4 240deg  300deg,
+        #ec4899 300deg  360deg
     );
     border: 4px solid var(--border);
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    transition: transform 3s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+    transition: transform 3s cubic-bezier(0.17,0.67,0.12,0.99);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -856,7 +1027,6 @@ html, body {
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-/* Position each segment label */
 .seg1 { top: 10px; left: 50%; transform: translateX(-50%); }
 .seg2 { top: 30%; right: 5px; }
 .seg3 { bottom: 30%; right: 5px; }
@@ -953,19 +1123,14 @@ html, body {
     font-size: 0.85rem;
 }
 
-.word-result:last-child {
-    border-bottom: none;
-}
-
+.word-result:last-child { border-bottom: none; }
 .word-result.correct-word { color: var(--success); }
 .word-result.skipped-word { color: var(--danger); }
 
 /* ========================================
    FINAL SCREEN
    ======================================== */
-.final-card {
-    text-align: center;
-}
+.final-card { text-align: center; }
 
 .trophy {
     font-size: 72px;
@@ -995,9 +1160,7 @@ html, body {
     margin-bottom: 20px;
 }
 
-.final-scores {
-    margin-bottom: 20px;
-}
+.final-scores { margin-bottom: 20px; }
 
 .final-score-row {
     display: flex;
@@ -1015,10 +1178,7 @@ html, body {
     background: rgba(245,158,11,0.1);
 }
 
-.final-team-name {
-    font-weight: 700;
-    font-size: 1rem;
-}
+.final-team-name { font-weight: 700; font-size: 1rem; }
 
 .final-team-score {
     font-family: 'Fredoka One', cursive;
@@ -1026,9 +1186,7 @@ html, body {
     color: var(--warning);
 }
 
-.badges-earned {
-    margin-bottom: 20px;
-}
+.badges-earned { margin-bottom: 20px; }
 
 .badges-earned h3 {
     font-size: 0.85rem;
@@ -1059,12 +1217,10 @@ html, body {
     gap: 12px;
 }
 
-.final-actions .btn {
-    margin-bottom: 0;
-}
+.final-actions .btn { margin-bottom: 0; }
 
 /* ========================================
-   TOAST NOTIFICATIONS
+   TOAST
    ======================================== */
 #toast-container {
     position: fixed;
@@ -1130,7 +1286,7 @@ html, body {
    ======================================== */
 @media (max-width: 400px) {
     .card { padding: 20px; }
-    .the-word { font-size: 1.9rem; }
+    .the-word { font-size: 1.8rem; }
     .setup-grid { grid-template-columns: 1fr; }
     .welcome-card h1 { font-size: 2rem; }
     .summary-stats { gap: 8px; }
