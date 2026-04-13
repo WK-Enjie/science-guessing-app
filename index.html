@@ -38,14 +38,36 @@
                 </button>
             </div>
 
+            <!-- Chapter Selection Panel -->
+            <div id="chapter-select" class="chapter-select" style="display:none;">
+                <h3 id="chapter-select-title">Select Chapters</h3>
+                <div id="chapter-checkboxes"></div>
+                <div id="chapter-load-status"></div>
+                <button class="btn btn-start" onclick="loadSelectedChapters()" style="margin-top:12px;">
+                    ▶️ Load and Play
+                </button>
+                <button class="btn btn-back" onclick="hideChapterSelect()" style="width:100%; margin-top:6px;">
+                    ← Back
+                </button>
+            </div>
+
             <!-- Custom JSON Upload -->
-            <div class="upload-section">
-                <p>Or upload your own questions:</p>
+            <div class="upload-section" id="upload-section">
+                <p>Or upload your own question files:</p>
                 <label class="upload-btn">
-                    📁 Upload JSON File
-                    <input type="file" id="json-upload" accept=".json" onchange="handleUpload(event)" hidden>
+                    📁 Upload JSON Files
+                    <input type="file" id="json-upload" accept=".json" multiple onchange="handleMultiUpload(event)" hidden>
                 </label>
-                <span id="upload-status"></span>
+                <div id="upload-status"></div>
+                <div id="loaded-chapters"></div>
+                <div id="chapter-controls" style="display:none; margin-top:12px;">
+                    <button class="btn btn-start" onclick="playLoadedChapters()" style="margin-bottom:8px;">
+                        🎮 Play Loaded Chapters
+                    </button>
+                    <button class="btn btn-back" onclick="clearAllChapters()" style="width:100%;">
+                        🗑️ Clear All
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -92,9 +114,7 @@
             </div>
 
             <!-- Team Names -->
-            <div id="team-names" class="team-names">
-                <!-- Dynamically generated -->
-            </div>
+            <div id="team-names" class="team-names"></div>
 
             <div class="setup-actions">
                 <button class="btn btn-back" onclick="goToScreen('screen-welcome')">← Back</button>
@@ -103,7 +123,7 @@
         </div>
     </div>
 
-    <!-- ========== SCREEN 3: HOW TO PLAY (before each turn) ========== -->
+    <!-- ========== SCREEN 3: RULES ========== -->
     <div id="screen-rules" class="screen">
         <div class="card rules-card">
             <h2>📋 How to Play</h2>
@@ -153,49 +173,34 @@
         </div>
 
         <div class="card game-card">
-            <!-- Difficulty Badge -->
             <div class="difficulty-badge" id="difficulty-badge">Medium</div>
-
-            <!-- Topic -->
             <div class="topic-label" id="topic-label">Biology</div>
-
-            <!-- THE WORD -->
             <h1 class="the-word" id="the-word">PHOTOSYNTHESIS</h1>
 
-            <!-- Clue / Hint -->
             <div class="clue-section">
                 <p class="clue-label">💡 Clue:</p>
                 <p class="clue-text" id="clue-text">This process happens in leaves</p>
             </div>
 
-            <!-- Forbidden Words -->
             <div class="forbidden-section">
                 <p class="forbidden-label">🚫 Do NOT say:</p>
-                <div class="forbidden-words" id="forbidden-words">
-                    <!-- Dynamically filled -->
-                </div>
+                <div class="forbidden-words" id="forbidden-words"></div>
             </div>
 
-            <!-- Point Value -->
             <div class="points-value" id="points-value">+2 points</div>
         </div>
 
         <div class="game-actions">
-            <button class="btn btn-skip" onclick="skipWord()">
-                ⏭️ Skip (−1)
-            </button>
-            <button class="btn btn-correct" onclick="correctAnswer()">
-                ✅ Correct!
-            </button>
+            <button class="btn btn-skip" onclick="skipWord()">⏭️ Skip (−1)</button>
+            <button class="btn btn-correct" onclick="correctAnswer()">✅ Correct!</button>
         </div>
 
-        <!-- Streak indicator -->
         <div class="streak-bar" id="streak-bar">
             <span id="streak-text">🔥 Streak: 0</span>
         </div>
     </div>
 
-    <!-- ========== SCREEN 5: REWARD / BONUS ========== -->
+    <!-- ========== SCREEN 5: REWARD ========== -->
     <div id="screen-reward" class="screen">
         <div class="card reward-card">
             <div class="reward-header">
@@ -203,13 +208,11 @@
                 <p>The answer was: <strong id="reward-answer">Photosynthesis</strong></p>
             </div>
 
-            <!-- Fun Fact -->
             <div class="fun-fact" id="fun-fact">
                 <span class="fact-icon">🧠</span>
                 <p id="fun-fact-text">Did you know? Plants produce about 50% of all oxygen on Earth!</p>
             </div>
 
-            <!-- Spin Wheel -->
             <div class="wheel-container" id="wheel-container">
                 <h3>🎰 Spin for Bonus!</h3>
                 <div class="wheel" id="wheel">
@@ -223,9 +226,7 @@
                     </div>
                     <div class="wheel-pointer">▼</div>
                 </div>
-                <button class="btn btn-spin" id="btn-spin" onclick="spinWheel()">
-                    Spin! 🎰
-                </button>
+                <button class="btn btn-spin" id="btn-spin" onclick="spinWheel()">Spin! 🎰</button>
                 <p class="spin-result" id="spin-result"></p>
             </div>
 
@@ -257,47 +258,36 @@
                 </div>
             </div>
 
-            <div class="words-reviewed" id="words-reviewed">
-                <!-- List of words attempted -->
-            </div>
+            <div class="words-reviewed" id="words-reviewed"></div>
 
-            <button class="btn btn-next" onclick="nextTurn()">
-                Next Team ▶️
-            </button>
+            <button class="btn btn-next" onclick="nextTurn()">Next Team ▶️</button>
         </div>
     </div>
 
-    <!-- ========== SCREEN 7: FINAL SCOREBOARD ========== -->
+    <!-- ========== SCREEN 7: FINAL ========== -->
     <div id="screen-final" class="screen">
         <div class="card final-card">
             <div class="trophy">🏆</div>
             <h2>Game Over!</h2>
             <h3 id="winner-text">Team 1 Wins!</h3>
 
-            <div class="final-scores" id="final-scores">
-                <!-- Dynamically generated -->
-            </div>
+            <div class="final-scores" id="final-scores"></div>
 
             <div class="badges-earned" id="badges-earned">
                 <h3>🏅 Badges Earned</h3>
-                <!-- Dynamically generated -->
             </div>
 
             <div class="final-actions">
-                <button class="btn btn-replay" onclick="resetGame()">
-                    🔄 Play Again
-                </button>
-                <button class="btn btn-home" onclick="goHome()">
-                    🏠 Home
-                </button>
+                <button class="btn btn-replay" onclick="resetGame()">🔄 Play Again</button>
+                <button class="btn btn-home" onclick="goHome()">🏠 Home</button>
             </div>
         </div>
     </div>
 
-    <!-- ========== TOAST NOTIFICATIONS ========== -->
+    <!-- ========== TOAST ========== -->
     <div id="toast-container"></div>
 
-    <!-- ========== CONFETTI CANVAS ========== -->
+    <!-- ========== CONFETTI ========== -->
     <canvas id="confetti-canvas"></canvas>
 
     <script src="game.js"></script>
