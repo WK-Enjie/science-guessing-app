@@ -1,0 +1,340 @@
+{
+  "level": "psle",
+  "title": "PSLE Science — Forces and Energy",
+  "version": "1.0",
+  "questions": [
+    {
+      "term": "Gravitational Potential Energy",
+      "topic": "Energy",
+      "difficulty": "Medium",
+      "clue": "This is a type of stored energy that an object has because of how high it is above the ground. The heavier the object and the higher it is placed, the more of this energy it stores. When the object falls, this stored energy changes into movement energy.",
+      "forbidden": ["gravity", "height", "ground", "heavy", "fall", "stored"],
+      "funFact": "A roller coaster stores maximum amounts of this energy at the very top of its highest point — then converts it all into thrilling speed as it plunges down!",
+      "points": 2
+    },
+    {
+      "term": "Elastic Potential Energy",
+      "topic": "Energy",
+      "difficulty": "Medium",
+      "clue": "This is stored energy found in an object that has been stretched or squashed. When you let go, the object springs back to its original shape and releases this energy as movement. A rubber band is a good example of something that stores this type of energy.",
+      "forbidden": ["stretch", "compress", "spring", "rubber", "bounce", "stored"],
+      "funFact": "A longbow used by ancient archers stores this type of energy when pulled back — releasing it launches an arrow at over 200 kilometres per hour!",
+      "points": 2
+    },
+    {
+      "term": "Chemical Potential Energy",
+      "topic": "Energy",
+      "difficulty": "Medium",
+      "clue": "This is energy that is locked away inside substances and can be released through a reaction. Food stores it so your body can move and grow. Batteries and fuel also contain large amounts of this type of energy waiting to be used.",
+      "forbidden": ["chemical", "reaction", "food", "battery", "fuel", "stored"],
+      "funFact": "A single teaspoon of sugar contains enough of this energy to power a light bulb for about 30 minutes if converted with 100 percent efficiency!",
+      "points": 2
+    },
+    {
+      "term": "Heat Energy",
+      "topic": "Energy",
+      "difficulty": "Easy",
+      "clue": "This is a form of energy that we feel as warmth. It flows from hotter objects to cooler ones and can be produced by burning fuel, rubbing surfaces together or by electricity. The Sun sends huge amounts of this to Earth every day.",
+      "forbidden": ["hot", "warm", "temperature", "fire", "sun", "thermal"],
+      "funFact": "The human body produces enough of this energy every day to bring half a litre of water to a full boil — your body is like a living furnace!",
+      "points": 1
+    },
+    {
+      "term": "Sound Energy",
+      "topic": "Energy",
+      "difficulty": "Easy",
+      "clue": "This is a form of energy that travels as vibrations through a material and can be detected by our ears. It cannot travel through empty space and moves faster through solids than through air.",
+      "forbidden": ["hear", "ear", "noise", "vibration", "loud", "travel"],
+      "funFact": "A blue whale's call is the loudest animal noise on Earth — this form of energy from its call can travel through the ocean for over 800 kilometres!",
+      "points": 1
+    },
+    {
+      "term": "Kinetic Energy",
+      "topic": "Energy",
+      "difficulty": "Medium",
+      "clue": "This is the energy that any moving object possesses. The faster an object moves and the heavier it is, the more of this energy it has. When a moving object slows down and stops, this energy is converted into other forms.",
+      "forbidden": ["move", "speed", "fast", "motion", "heavy", "mass"],
+      "funFact": "A mosquito flying has a tiny amount of this energy — but a large ship moving at full speed has so much that it takes several kilometres to come to a complete stop!",
+      "points": 2
+    },
+    {
+      "term": "Light Energy",
+      "topic": "Energy",
+      "difficulty": "Easy",
+      "clue": "This is a form of energy that can travel through empty space and allows us to see objects around us. The Sun is the most important natural source of this energy on Earth. Plants use it to make their own food.",
+      "forbidden": ["see", "sun", "bright", "visible", "eye", "shine"],
+      "funFact": "This form of energy from the Sun takes about 8 minutes to travel 150 million kilometres to reach Earth — yet it arrives with enough power to run the entire planet!",
+      "points": 1
+    },
+    {
+      "term": "Mass",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This is the amount of matter contained in an object. It does not change no matter where the object is — whether on Earth, the Moon or in outer space. It is measured in grams or kilograms.",
+      "forbidden": ["weight", "heavy", "matter", "kilogram", "measure", "amount"],
+      "funFact": "Your mass stays exactly the same on the Moon as on Earth — but your weight changes because the pulling force of the Moon is much weaker than Earth's!",
+      "points": 1
+    },
+    {
+      "term": "Height Above Ground",
+      "topic": "Energy",
+      "difficulty": "Easy",
+      "clue": "This measurement tells us how far an object is from the surface of the Earth. The greater this measurement, the more stored energy due to gravity an object has. When this decreases, the stored energy converts to movement energy.",
+      "forbidden": ["high", "ground", "above", "tall", "gravity", "fall"],
+      "funFact": "A skydiver at 4000 metres has enormous stored energy due to this measurement — all of which converts into movement energy during the thrilling freefall!",
+      "points": 1
+    },
+    {
+      "term": "Speed",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This tells us how fast an object is moving by measuring the distance it covers in a given amount of time. A higher value of this means the object has more movement energy and takes longer to stop.",
+      "forbidden": ["fast", "slow", "distance", "time", "move", "velocity"],
+      "funFact": "A cheetah can reach a top value of this measurement of about 120 kilometres per hour — but can only maintain it for about 30 seconds before tiring out!",
+      "points": 1
+    },
+    {
+      "term": "Force",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This is a push or a pull that acts on an object. It can make something start moving, stop moving, move faster, change direction or change its shape. It cannot be seen but its effects on objects can always be observed.",
+      "forbidden": ["push", "pull", "energy", "motion", "Newton", "interact"],
+      "funFact": "Even sitting completely still you are experiencing one of these — the Earth is constantly pulling you downward and the chair or floor pushes back up against you at the same time!",
+      "points": 1
+    },
+    {
+      "term": "Push",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This is one of the two basic types of force. It moves an object away from the source of the force. When you open a door, press a button or kick a ball you are applying this type of force to the object.",
+      "forbidden": ["force", "away", "press", "shove", "apply", "door"],
+      "funFact": "The engine of a rocket applies an enormous version of this force downward on the hot gases it expels — and the gases apply the same force back upward on the rocket, sending it into space!",
+      "points": 1
+    },
+    {
+      "term": "Pull",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This is one of the two basic types of force. It moves an object toward the source of the force. When you open a drawer, pick up a bag or stretch a rubber band you are applying this type of force.",
+      "forbidden": ["force", "toward", "drag", "tug", "attract", "draw"],
+      "funFact": "The Earth applies an invisible version of this force on every single object that has mass — it is what keeps your feet on the ground and what makes dropped objects fall downward!",
+      "points": 1
+    },
+    {
+      "term": "Direction of Force",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This tells us which way a push or pull is acting on an object. In science diagrams it is shown using an arrow — the way the arrow points tells us which way the force is acting on the object.",
+      "forbidden": ["arrow", "way", "point", "left", "right", "toward"],
+      "funFact": "In a tug of war both teams apply the same type of force but in completely opposite versions of this — the team that applies the greater force in their version wins by pulling the rope their way!",
+      "points": 1
+    },
+    {
+      "term": "Strength of Force",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This tells us how large or small a push or pull is. In science diagrams it is shown by the length of an arrow — a longer arrow means a larger push or pull and a shorter arrow means a smaller one.",
+      "forbidden": ["size", "large", "small", "arrow", "length", "amount"],
+      "funFact": "An ant can carry objects up to 50 times its own body weight — the version of this that an ant's tiny muscles can produce relative to its body size is far greater than any human weightlifter can achieve!",
+      "points": 1
+    },
+    {
+      "term": "Overcome",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "In science this word describes what happens when one force is large enough to win against another opposing force so that movement or change happens. A push must be strong enough to do this to the opposing force before an object will begin to move.",
+      "forbidden": ["win", "beat", "stronger", "larger", "defeat", "against"],
+      "funFact": "A gecko can walk on ceilings because the tiny hairs on its feet produce a sticking force large enough to do this to the downward pull of the Earth — using millions of microscopic contact points!",
+      "points": 2
+    },
+    {
+      "term": "Friction Between Surfaces",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This is a force that acts against the movement of an object when two surfaces are touching each other. The rougher the surfaces are, the greater this force will be. It always acts in the direction opposite to the way the object is moving.",
+      "forbidden": ["rough", "rub", "surface", "oppose", "slow", "contact"],
+      "funFact": "The soles of your school shoes are designed to produce a lot of this force — without it you would slide helplessly in every direction every time you tried to take a step!",
+      "points": 1
+    },
+    {
+      "term": "Contact Force",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This type of force only works when two objects are physically touching each other. The opposing force when surfaces slide against each other and the push of a hand on a door are both examples of this category of force.",
+      "forbidden": ["touch", "surface", "friction", "push", "pull", "together"],
+      "funFact": "Every time you kick a football you are producing one of these — your foot and the ball must be directly touching for the force from your leg muscles to be passed on to the ball!",
+      "points": 1
+    },
+    {
+      "term": "Non-Contact Force",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This type of force acts between objects even when they are not touching each other at all. The invisible pull that the Earth exerts on all objects and the push or pull between the ends of magnetic objects are both examples of this category.",
+      "forbidden": ["touch", "distance", "magnet", "gravity", "attract", "repel"],
+      "funFact": "The Earth pulls the Moon toward it using one of these forces across 384,000 kilometres of completely empty space — this invisible pull across that enormous distance is what keeps the Moon orbiting our planet!",
+      "points": 1
+    },
+    {
+      "term": "Effects of Force",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "When a push or pull acts on an object it can cause several possible outcomes — it can make the object start moving or go faster, slow it down or stop it, change the direction it travels or change the shape of the object.",
+      "forbidden": ["push", "pull", "faster", "slower", "direction", "shape"],
+      "funFact": "A goalkeeper diving to stop a penalty kick shows all the possible outcomes at once — the ball changes from fast to stopped and from moving forward to bouncing back all at the exact same moment!",
+      "points": 1
+    },
+    {
+      "term": "Elastic Spring Force",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "This is the pushing or pulling force produced by a coiled object when it has been squashed or stretched away from its natural length. The further it is changed from its natural length, the stronger this force becomes.",
+      "forbidden": ["spring", "coil", "stretch", "compress", "metal", "bounce"],
+      "funFact": "The suspension system in a car uses this force — hidden coiled objects absorb the bumps in the road so that passengers feel a smooth and comfortable ride instead of every jolt!",
+      "points": 2
+    },
+    {
+      "term": "Length of Compression",
+      "topic": "Forces",
+      "difficulty": "Hard",
+      "clue": "This is the measurement of how much shorter a coiled object has become compared to its natural resting length after being squashed by a pushing force. The greater this measurement, the stronger the pushing force the object produces when released.",
+      "forbidden": ["squash", "push", "spring", "shorten", "press", "reduce"],
+      "funFact": "Engineers carefully calculate this measurement in car bumpers — coiled objects inside are designed to squash by exactly the right amount to absorb crash energy and keep passengers safe!",
+      "points": 3
+    },
+    {
+      "term": "Length of Extension",
+      "topic": "Forces",
+      "difficulty": "Hard",
+      "clue": "This is the measurement of how much longer a coiled object has become compared to its natural resting length after a pulling force has been applied to it. It is the difference between the stretched length and the natural length.",
+      "forbidden": ["stretch", "pull", "longer", "spring", "increase", "extra"],
+      "funFact": "Scientists use coiled objects with carefully measured amounts of this to build accurate weighing instruments — the more weight that is added, the greater this measurement becomes in a perfectly even way!",
+      "points": 3
+    },
+    {
+      "term": "Length of Spring",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "This is the total measurement from one end of a coiled object to the other at any given moment. When a pushing or pulling force is applied it changes from its natural resting value — getting shorter when squashed and longer when stretched.",
+      "forbidden": ["coil", "metal", "measure", "end", "natural", "size"],
+      "funFact": "The natural version of this measurement for a coiled object used in science experiments is carefully selected by the manufacturer so that readings begin accurately at zero before any force is applied!",
+      "points": 2
+    },
+    {
+      "term": "Stiffness of a Spring",
+      "topic": "Forces",
+      "difficulty": "Hard",
+      "clue": "This is a property of a coiled object that describes how much force is needed to change its length by a certain amount. An object with more of this property needs a much greater push or pull to change its length by the same distance as a less stiff one.",
+      "forbidden": ["spring", "coil", "hard", "force", "stretch", "compress"],
+      "funFact": "Mattress makers carefully select coiled objects with different amounts of this property — a firmer mattress uses objects that need much greater force to squash down by the same small distance as a softer one!",
+      "points": 3
+    },
+    {
+      "term": "Magnetic Force",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "This is an invisible push or pull that acts between certain objects without them needing to touch each other at all. It can attract certain metals and can either attract or push away similar objects depending on which ends are facing each other.",
+      "forbidden": ["magnet", "attract", "repel", "iron", "pole", "metal"],
+      "funFact": "The world's fastest trains in Japan use this force to float completely above the track with no contact at all — reaching speeds of over 600 kilometres per hour with almost no opposing surface force!",
+      "points": 1
+    },
+    {
+      "term": "Like Poles Repel Unlike Poles Attract",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "This is the rule that describes how the two ends of magnetic objects behave toward each other. When the same type of end faces another of the same type they push away from each other. When opposite types of ends face each other they pull toward each other.",
+      "forbidden": ["north", "south", "magnet", "push", "pull", "pole"],
+      "funFact": "This rule is what makes maglev trains work — by cleverly facing the ends of powerful magnets in the right directions the train is pushed upward off the track and propelled forward along it at the same time!",
+      "points": 2
+    },
+    {
+      "term": "Gravitational Force",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "This is an invisible pulling force that the Earth exerts on all objects pulling them downward toward the ground. The greater the mass of an object, the greater this force acting on it. It is what gives objects their weight.",
+      "forbidden": ["gravity", "pull", "weight", "Earth", "fall", "planet"],
+      "funFact": "This force from the Moon is strong enough to pull Earth's entire oceans toward it — creating the rising and falling of sea levels we call tides that happen reliably every single day!",
+      "points": 2
+    },
+    {
+      "term": "Lubricant",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "This is a slippery substance placed between two touching surfaces to make them slide past each other more easily. It works by creating a thin separating layer that reduces the force that opposes movement between the surfaces.",
+      "forbidden": ["oil", "grease", "slippery", "reduce", "friction", "smooth"],
+      "funFact": "Your body produces a natural version of this inside every joint — without this fluid your knee and elbow bones would grind painfully against each other every single time you moved!",
+      "points": 2
+    },
+    {
+      "term": "Wheels",
+      "topic": "Forces",
+      "difficulty": "Easy",
+      "clue": "These are circular objects that spin around a central fixed point and allow objects to move from place to place much more easily. They reduce the opposing force of movement by changing sliding contact between surfaces into a rolling contact instead.",
+      "forbidden": ["round", "circular", "roll", "vehicle", "rotate", "tyre"],
+      "funFact": "Before these were invented humans had to drag heavy loads across the ground — the invention of these simple objects is widely considered one of the single greatest turning points in all of human history!",
+      "points": 1
+    },
+    {
+      "term": "Pivot",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "This is the fixed point around which an object turns or rotates when a force is applied to it. A seesaw balances and tips around this point which is located in the middle. Scissors and bottle openers also rotate around one of these.",
+      "forbidden": ["turn", "rotate", "point", "middle", "seesaw", "fulcrum"],
+      "funFact": "Archimedes the ancient Greek mathematician famously said that if you gave him a lever long enough and a place to stand he could move the entire Earth — the secret is having the right position for this fixed point!",
+      "points": 2
+    },
+    {
+      "term": "Load",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "In the study of simple machines this is the object or weight that needs to be moved or lifted. It is what the machine is doing work on. On a seesaw the heavier person on one side represents this.",
+      "forbidden": ["weight", "object", "lift", "move", "heavy", "seesaw"],
+      "funFact": "A simple lever like a crowbar lets one person lift a very heavy version of this with surprisingly little effort — the longer the lever arm on the effort side, the easier it becomes to lift!",
+      "points": 2
+    },
+    {
+      "term": "Effort",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "In the study of simple machines this is the force that is applied by a person to make the machine work. On a seesaw this is the push or pull you apply with your legs to make your side go down and lift the other side.",
+      "forbidden": ["force", "apply", "push", "pull", "person", "work"],
+      "funFact": "Using a longer spanner handle reduces the amount of this needed to tighten a bolt — the further from the turning point you apply your force, the less of it you need to achieve the same turning effect!",
+      "points": 2
+    },
+    {
+      "term": "Energy Conversion",
+      "topic": "Energy",
+      "difficulty": "Medium",
+      "clue": "This is the process where one form of energy changes into one or more different forms. For example the stored energy in food changes to movement energy in your muscles, or the stored energy in a battery changes to light energy in a torch.",
+      "forbidden": ["change", "transform", "transfer", "convert", "form", "type"],
+      "funFact": "Even charging your phone involves many steps of this process — stored energy in a power station becomes electrical energy which then becomes stored energy inside your phone battery!",
+      "points": 2
+    },
+    {
+      "term": "Energy Transfer",
+      "topic": "Energy",
+      "difficulty": "Medium",
+      "clue": "This is when energy moves from one object or place to another. The type of energy may stay the same but it moves away from where it started to somewhere or something else. Warmth moving from a hot cup to your cold hands is a good example.",
+      "forbidden": ["move", "pass", "object", "from", "to", "carry"],
+      "funFact": "Newton's cradle demonstrates this beautifully — movement energy passes through the completely still balls in the middle and appears at the far end without any of those middle balls visibly moving at all!",
+      "points": 2
+    },
+    {
+      "term": "Compression",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "This is the action of squashing an object inward so that it becomes shorter than its natural size. When applied to a coiled or elastic object it stores energy inside that object which can later be released as a pushing force.",
+      "forbidden": ["squash", "press", "shorter", "smaller", "spring", "push"],
+      "funFact": "The air inside a bicycle tyre is kept in this condition — the tightly packed air pushes outward in all directions creating a firm tyre that can comfortably support the full weight of the rider!",
+      "points": 2
+    },
+    {
+      "term": "Extension",
+      "topic": "Forces",
+      "difficulty": "Medium",
+      "clue": "This is the action of pulling an elastic object outward so that it becomes longer than its natural resting length. The greater this amount, the greater the pulling force the object exerts as it tries to return to its original length.",
+      "forbidden": ["pull", "stretch", "longer", "elastic", "original", "increase"],
+      "funFact": "Bungee jumping relies entirely on this — the cord reaches its maximum amount of this before pulling the jumper back upward, converting all the movement energy back into stored energy in the cord!",
+      "points": 2
+    }
+  ]
+}
