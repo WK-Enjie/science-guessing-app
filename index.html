@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔬 Science Charades - SG Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ========== PARTICLES BACKGROUND ========== -->
+    <div id="particles"></div>
+
+    <!-- ========== SCREEN 1: WELCOME ========== -->
+    <div id="screen-welcome" class="screen active">
+        <div class="card welcome-card">
+            <div class="logo-icon">🔬</div>
+            <h1>Science Charades</h1>
+            <p class="subtitle">Singapore Edition</p>
+            <p class="tagline">Describe it. Guess it. Learn it!</p>
+
+            <div class="level-select">
+                <h3>Choose Your Level</h3>
+                <button class="btn btn-psle" onclick="selectLevel('psle')">
+                    <span class="btn-emoji">🌱</span>
+                    <span class="btn-text">
+                        <strong>PSLE Science</strong>
+                        <small>Primary 3 – 6</small>
+                    </span>
+                </button>
+                <button class="btn btn-olevel" onclick="selectLevel('olevel')">
+                    <span class="btn-emoji">🚀</span>
+                    <span class="btn-text">
+                        <strong>O-Level Science</strong>
+                        <small>Secondary 1 – 4</small>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Custom JSON Upload -->
+            <div class="upload-section">
+                <p>Or upload your own questions:</p>
+                <label class="upload-btn">
+                    📁 Upload JSON File
+                    <input type="file" id="json-upload" accept=".json" onchange="handleUpload(event)" hidden>
+                </label>
+                <span id="upload-status"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 2: GAME SETUP ========== -->
+    <div id="screen-setup" class="screen">
+        <div class="card setup-card">
+            <h2>⚙️ Game Setup</h2>
+
+            <div class="setup-grid">
+                <div class="setup-group">
+                    <label>👥 Number of Teams</label>
+                    <div class="stepper">
+                        <button onclick="adjustTeams(-1)">−</button>
+                        <span id="team-count">2</span>
+                        <button onclick="adjustTeams(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="setup-group">
+                    <label>⏱️ Timer (seconds)</label>
+                    <div class="stepper">
+                        <button onclick="adjustTimer(-10)">−</button>
+                        <span id="timer-setting">60</span>
+                        <button onclick="adjustTimer(10)">+</button>
+                    </div>
+                </div>
+
+                <div class="setup-group">
+                    <label>🎯 Rounds</label>
+                    <div class="stepper">
+                        <button onclick="adjustRounds(-1)">−</button>
+                        <span id="round-setting">3</span>
+                        <button onclick="adjustRounds(1)">+</button>
+                    </div>
+                </div>
+
+                <div class="setup-group">
+                    <label>📚 Topic Filter</label>
+                    <select id="topic-filter" onchange="filterTopic()">
+                        <option value="all">All Topics</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Team Names -->
+            <div id="team-names" class="team-names">
+                <!-- Dynamically generated -->
+            </div>
+
+            <div class="setup-actions">
+                <button class="btn btn-back" onclick="goToScreen('screen-welcome')">← Back</button>
+                <button class="btn btn-start" onclick="startGame()">Start Game 🎮</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 3: HOW TO PLAY (before each turn) ========== -->
+    <div id="screen-rules" class="screen">
+        <div class="card rules-card">
+            <h2>📋 How to Play</h2>
+            <div class="rules-list">
+                <div class="rule">
+                    <span class="rule-num">1</span>
+                    <p>A <strong>scientific term</strong> will appear on screen</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-num">2</span>
+                    <p><strong>Describe</strong> it using words — NO acting!</p>
+                </div>
+                <div class="rule">
+                    <span class="rule-num">3</span>
+                    <p>You <strong>CANNOT</strong> say the <span class="forbidden">forbidden words</span></p>
+                </div>
+                <div class="rule">
+                    <span class="rule-num">4</span>
+                    <p>Team guesses correctly = <strong>Points + Bonus Reward!</strong></p>
+                </div>
+                <div class="rule">
+                    <span class="rule-num">5</span>
+                    <p>Skip costs <strong>−1 point</strong>. Choose wisely!</p>
+                </div>
+            </div>
+
+            <div class="turn-info">
+                <h3>🎯 Now Playing</h3>
+                <p class="current-team" id="current-team-display">Team 1</p>
+                <p>Round <span id="current-round-display">1</span> of <span id="total-round-display">3</span></p>
+            </div>
+
+            <button class="btn btn-ready pulse" onclick="startTurn()">
+                Ready? Let's Go! 🚀
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 4: GAME PLAY ========== -->
+    <div id="screen-game" class="screen">
+        <div class="game-header">
+            <div class="game-team" id="game-team-name">Team 1</div>
+            <div class="game-timer" id="game-timer">60</div>
+            <div class="game-score">
+                Score: <span id="game-score">0</span>
+            </div>
+        </div>
+
+        <div class="card game-card">
+            <!-- Difficulty Badge -->
+            <div class="difficulty-badge" id="difficulty-badge">Medium</div>
+
+            <!-- Topic -->
+            <div class="topic-label" id="topic-label">Biology</div>
+
+            <!-- THE WORD -->
+            <h1 class="the-word" id="the-word">PHOTOSYNTHESIS</h1>
+
+            <!-- Clue / Hint -->
+            <div class="clue-section">
+                <p class="clue-label">💡 Clue:</p>
+                <p class="clue-text" id="clue-text">This process happens in leaves</p>
+            </div>
+
+            <!-- Forbidden Words -->
+            <div class="forbidden-section">
+                <p class="forbidden-label">🚫 Do NOT say:</p>
+                <div class="forbidden-words" id="forbidden-words">
+                    <!-- Dynamically filled -->
+                </div>
+            </div>
+
+            <!-- Point Value -->
+            <div class="points-value" id="points-value">+2 points</div>
+        </div>
+
+        <div class="game-actions">
+            <button class="btn btn-skip" onclick="skipWord()">
+                ⏭️ Skip (−1)
+            </button>
+            <button class="btn btn-correct" onclick="correctAnswer()">
+                ✅ Correct!
+            </button>
+        </div>
+
+        <!-- Streak indicator -->
+        <div class="streak-bar" id="streak-bar">
+            <span id="streak-text">🔥 Streak: 0</span>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 5: REWARD / BONUS ========== -->
+    <div id="screen-reward" class="screen">
+        <div class="card reward-card">
+            <div class="reward-header">
+                <h2>🎉 Correct!</h2>
+                <p>The answer was: <strong id="reward-answer">Photosynthesis</strong></p>
+            </div>
+
+            <!-- Fun Fact -->
+            <div class="fun-fact" id="fun-fact">
+                <span class="fact-icon">🧠</span>
+                <p id="fun-fact-text">Did you know? Plants produce about 50% of all oxygen on Earth!</p>
+            </div>
+
+            <!-- Spin Wheel -->
+            <div class="wheel-container" id="wheel-container">
+                <h3>🎰 Spin for Bonus!</h3>
+                <div class="wheel" id="wheel">
+                    <div class="wheel-inner" id="wheel-inner">
+                        <div class="wheel-segment seg1">+1</div>
+                        <div class="wheel-segment seg2">+3</div>
+                        <div class="wheel-segment seg3">⭐</div>
+                        <div class="wheel-segment seg4">+2</div>
+                        <div class="wheel-segment seg5">🧪</div>
+                        <div class="wheel-segment seg6">+5</div>
+                    </div>
+                    <div class="wheel-pointer">▼</div>
+                </div>
+                <button class="btn btn-spin" id="btn-spin" onclick="spinWheel()">
+                    Spin! 🎰
+                </button>
+                <p class="spin-result" id="spin-result"></p>
+            </div>
+
+            <button class="btn btn-continue" id="btn-continue" onclick="continueGame()">
+                Continue ▶️
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 6: TURN END ========== -->
+    <div id="screen-turnend" class="screen">
+        <div class="card turnend-card">
+            <h2>⏰ Time's Up!</h2>
+            <div class="turn-summary">
+                <p class="team-summary" id="turn-team-name">Team 1</p>
+                <div class="summary-stats">
+                    <div class="stat">
+                        <span class="stat-num" id="turn-correct">0</span>
+                        <span class="stat-label">Correct ✅</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" id="turn-skipped">0</span>
+                        <span class="stat-label">Skipped ⏭️</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" id="turn-points">0</span>
+                        <span class="stat-label">Points 🏆</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="words-reviewed" id="words-reviewed">
+                <!-- List of words attempted -->
+            </div>
+
+            <button class="btn btn-next" onclick="nextTurn()">
+                Next Team ▶️
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== SCREEN 7: FINAL SCOREBOARD ========== -->
+    <div id="screen-final" class="screen">
+        <div class="card final-card">
+            <div class="trophy">🏆</div>
+            <h2>Game Over!</h2>
+            <h3 id="winner-text">Team 1 Wins!</h3>
+
+            <div class="final-scores" id="final-scores">
+                <!-- Dynamically generated -->
+            </div>
+
+            <div class="badges-earned" id="badges-earned">
+                <h3>🏅 Badges Earned</h3>
+                <!-- Dynamically generated -->
+            </div>
+
+            <div class="final-actions">
+                <button class="btn btn-replay" onclick="resetGame()">
+                    🔄 Play Again
+                </button>
+                <button class="btn btn-home" onclick="goHome()">
+                    🏠 Home
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TOAST NOTIFICATIONS ========== -->
+    <div id="toast-container"></div>
+
+    <!-- ========== CONFETTI CANVAS ========== -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="game.js"></script>
+</body>
+</html>
