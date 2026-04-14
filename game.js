@@ -128,7 +128,7 @@ const FALLBACK_QUESTIONS = {
 // Local:          './questions/'
 // GitHub Pages:   'https://USERNAME.github.io/REPO/questions/'
 // Raw GitHub:     'https://raw.githubusercontent.com/USERNAME/REPO/main/questions/'
-const BASE_URL = 'https://USERNAME.github.io/REPONAME/questions/';
+const BASE_URL = 'https://wk-enjie.github.io/science-guessing-app/questions/';
 
 const CHAPTER_REGISTRY = {
     psle: [
