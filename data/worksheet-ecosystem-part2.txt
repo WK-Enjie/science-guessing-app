@@ -1,0 +1,80 @@
+{
+  "title": "Ecosystems Part 2: Energy Flow, Nutrient Cycles and Adaptations",
+  "subject": "Biology - Ecosystems",
+  "level": "Lower Secondary (Grades 7-8)",
+  "description": "Understanding energy flow through food chains and webs, nutrient recycling, and organism adaptations",
+  "words": [
+    {
+      "target": "FOOD CHAIN",
+      "keywords": ["energy", "flow", "producer", "consumer", "arrows", "sequence"],
+      "difficulty": "easy",
+      "hint": "Shows the transfer of energy from one organism to another"
+    },
+    {
+      "target": "FOOD WEB",
+      "keywords": ["interconnected", "chains", "complex", "energy", "relationships", "network"],
+      "difficulty": "medium",
+      "hint": "Multiple interconnected food chains"
+    },
+    {
+      "target": "PRODUCER",
+      "keywords": ["plants", "photosynthesis", "energy", "make", "food", "sunlight"],
+      "difficulty": "easy",
+      "hint": "Organisms that make their own food using sunlight"
+    },
+    {
+      "target": "CONSUMER",
+      "keywords": ["eat", "organisms", "energy", "food", "animals", "depend"],
+      "difficulty": "easy",
+      "hint": "Organisms that eat other organisms for energy"
+    },
+    {
+      "target": "DECOMPOSER",
+      "keywords": ["break down", "decay", "bacteria", "fungi", "nutrients", "recycle"],
+      "difficulty": "medium",
+      "hint": "Organisms that break down dead matter"
+    },
+    {
+      "target": "PHOTOSYNTHESIS",
+      "keywords": ["light", "energy", "glucose", "plants", "carbon dioxide", "oxygen"],
+      "difficulty": "medium",
+      "hint": "Process where plants make food using light energy"
+    },
+    {
+      "target": "RESPIRATION",
+      "keywords": ["energy", "release", "oxygen", "glucose", "carbon dioxide", "cells"],
+      "difficulty": "medium",
+      "hint": "Process that releases energy from food in cells"
+    },
+    {
+      "target": "NUTRIENT CYCLE",
+      "keywords": ["recycling", "decomposers", "environment", "materials", "reuse", "nature"],
+      "difficulty": "hard",
+      "hint": "How nutrients are recycled in the environment"
+    },
+    {
+      "target": "STRUCTURAL ADAPTATION",
+      "keywords": ["physical", "body", "features", "survival", "shape", "size"],
+      "difficulty": "hard",
+      "hint": "Physical features that help survival"
+    },
+    {
+      "target": "BEHAVIORAL ADAPTATION",
+      "keywords": ["actions", "habits", "survival", "migration", "hibernation", "behavior"],
+      "difficulty": "hard",
+      "hint": "Actions organisms do to survive"
+    },
+    {
+      "target": "CAMOUFLAGE",
+      "keywords": ["hide", "blend", "predators", "adaptation", "color", "environment"],
+      "difficulty": "medium",
+      "hint": "Blending in with surroundings for survival"
+    },
+    {
+      "target": "ENERGY TRANSFER",
+      "keywords": ["flow", "food", "chain", "decrease", "level", "trophic"],
+      "difficulty": "medium",
+      "hint": "Movement of energy between organisms"
+    }
+  ]
+}
