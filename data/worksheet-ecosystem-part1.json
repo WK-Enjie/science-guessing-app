@@ -1,0 +1,80 @@
+{
+  "title": "Ecosystems Part 1: Physical Factors and Relationships",
+  "subject": "Biology - Ecosystems",
+  "level": "Lower Secondary (Grades 7-8)",
+  "description": "Understanding physical environmental factors and types of ecological relationships in ecosystems",
+  "words": [
+    {
+      "target": "ECOSYSTEM",
+      "keywords": ["community", "environment", "interactions", "physical", "biotic", "abiotic"],
+      "difficulty": "medium",
+      "hint": "Interactions between living things and their surroundings"
+    },
+    {
+      "target": "PREDATOR-PREY",
+      "keywords": ["hunting", "consumption", "food", "survival", "population", "relationship"],
+      "difficulty": "medium",
+      "hint": "A relationship where one organism hunts another"
+    },
+    {
+      "target": "MUTUALISM",
+      "keywords": ["benefit", "both", "cooperation", "symbiosis", "relationship", "positive"],
+      "difficulty": "hard",
+      "hint": "Both organisms benefit from this relationship"
+    },
+    {
+      "target": "PARASITISM",
+      "keywords": ["harm", "host", "benefit", "relationship", "organism", "negative"],
+      "difficulty": "hard",
+      "hint": "One organism benefits while harming the other"
+    },
+    {
+      "target": "TEMPERATURE",
+      "keywords": ["heat", "cold", "physical", "factor", "survival", "environment"],
+      "difficulty": "easy",
+      "hint": "A measure of how hot or cold something is"
+    },
+    {
+      "target": "LIGHT",
+      "keywords": ["sun", "photosynthesis", "energy", "plants", "physical", "factor"],
+      "difficulty": "easy",
+      "hint": "Plants need this for photosynthesis"
+    },
+    {
+      "target": "WATER",
+      "keywords": ["liquid", "hydration", "survival", "physical", "factor", "essential"],
+      "difficulty": "easy",
+      "hint": "All living things need this to survive"
+    },
+    {
+      "target": "ACIDITY",
+      "keywords": ["pH", "alkaline", "physical", "factor", "soil", "environment"],
+      "difficulty": "medium",
+      "hint": "Measured by pH scale"
+    },
+    {
+      "target": "MINERALS",
+      "keywords": ["nutrients", "soil", "plants", "growth", "physical", "factor"],
+      "difficulty": "medium",
+      "hint": "Essential nutrients found in soil"
+    },
+    {
+      "target": "COMMUNITY",
+      "keywords": ["organisms", "population", "species", "interact", "living", "together"],
+      "difficulty": "medium",
+      "hint": "Different populations living together"
+    },
+    {
+      "target": "POPULATION",
+      "keywords": ["same", "species", "group", "area", "organisms", "number"],
+      "difficulty": "easy",
+      "hint": "Group of organisms of the same species"
+    },
+    {
+      "target": "ADAPTATION",
+      "keywords": ["survival", "traits", "evolution", "environment", "characteristics", "suited"],
+      "difficulty": "hard",
+      "hint": "Features that help organisms survive in their environment"
+    }
+  ]
+}
