@@ -29,25 +29,33 @@ class GameState {
     }
     
     loadWorksheet(worksheet) {
+        console.log('Loading worksheet into state:', worksheet.title);
         this.worksheet = worksheet;
         this.prepareWords();
     }
     
     prepareWords() {
-        if (!this.worksheet) return;
+        if (!this.worksheet) {
+            console.error('No worksheet to prepare!');
+            return;
+        }
         
         let words = [...this.worksheet.words];
+        console.log('Original words count:', words.length);
         
         // Apply game mode filters
         if (this.gameMode === 'random') {
             words = Utils.getRandomElements(words, CONFIG.MODES.RANDOM.wordCount);
+            console.log('Random mode: selected', words.length, 'words');
         } else if (this.gameMode === 'difficulty') {
             const difficulty = document.getElementById('difficulty-filter').value;
             words = Utils.filterByDifficulty(words, difficulty);
+            console.log('Difficulty mode:', difficulty, '- selected', words.length, 'words');
         }
         
         // Shuffle words
         this.currentWords = Utils.shuffleArray(words);
+        console.log('Words prepared and shuffled:', this.currentWords.length);
     }
     
     getCurrentWord() {
@@ -70,7 +78,12 @@ class GameState {
         this.stopTimer();
         this.timerRemaining = this.timerDuration;
         
-        if (this.timerDuration === 0) return; // No timer mode
+        if (this.timerDuration === 0) {
+            console.log('No timer mode - timer disabled');
+            return; // No timer mode
+        }
+        
+        console.log('Starting timer:', this.timerDuration, 'seconds');
         
         this.timerInterval = setInterval(() => {
             if (!this.isPaused) {
@@ -88,6 +101,7 @@ class GameState {
         if (this.timerInterval) {
             clearInterval(this.timerInterval);
             this.timerInterval = null;
+            console.log('Timer stopped');
         }
     }
     
@@ -108,6 +122,7 @@ class GameState {
     }
     
     onTimeUp() {
+        console.log('Time up!');
         this.stopTimer();
         this.recordResult(false, true); // timeout
         
@@ -139,15 +154,19 @@ class GameState {
         } else if (!timeout) {
             this.skippedCount++;
         }
+        
+        console.log('Result recorded:', { correct, timeout, score: this.score });
     }
     
     endGame() {
+        console.log('Game ending...');
         this.stopTimer();
         game.showResults();
     }
     
     togglePause() {
         this.isPaused = !this.isPaused;
+        console.log('Game paused:', this.isPaused);
     }
 }
 
@@ -161,6 +180,7 @@ class Game {
         this.initializeElements();
         this.attachEventListeners();
         this.loadSettings();
+        console.log('Game initialized');
     }
     
     initializeElements() {
@@ -211,6 +231,8 @@ class Game {
             // Modal
             pauseModal: document.getElementById('pause-modal')
         };
+        
+        console.log('Elements initialized');
     }
     
     attachEventListeners() {
@@ -218,6 +240,7 @@ class Game {
         document.querySelectorAll('.worksheet-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const file = e.target.dataset.file;
+                console.log('Worksheet button clicked:', file);
                 this.loadWorksheetFromFile(file);
             });
         });
@@ -234,7 +257,13 @@ class Game {
         
         // Game controls
         document.getElementById('start-game-btn').addEventListener('click', () => {
-            this.startGame();
+            console.log('Start game button clicked');
+            try {
+                this.startGame();
+            } catch (error) {
+                console.error('Error starting game:', error);
+                Utils.showToast('Error starting game: ' + error.message, 'error');
+            }
         });
         
         document.getElementById('toggle-view-btn').addEventListener('click', () => {
@@ -290,6 +319,8 @@ class Game {
                 }
             }
         });
+        
+        console.log('Event listeners attached');
     }
     
     loadSettings() {
@@ -314,20 +345,44 @@ class Game {
     
     async loadWorksheetFromFile(filePath) {
         try {
-            const response = await fetch(filePath);
-            if (!response.ok) throw new Error('Failed to load worksheet');
+            console.log('Attempting to load:', filePath);
+            
+            const response = await fetch(filePath, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            console.log('Response status:', response.status);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             
             const worksheet = await response.json();
+            console.log('Worksheet loaded successfully:', worksheet.title);
+            
             this.processWorksheet(worksheet);
         } catch (error) {
             console.error('Error loading worksheet:', error);
-            Utils.showToast('Failed to load worksheet', 'error');
+            
+            // More specific error messages
+            if (error.name === 'TypeError' && error.message.includes('Failed to fetch')) {
+                Utils.showToast('Network error: Check your internet connection or file URL', 'error');
+            } else if (error.name === 'SyntaxError') {
+                Utils.showToast('Invalid JSON format in worksheet file', 'error');
+            } else {
+                Utils.showToast(`Failed to load worksheet: ${error.message}`, 'error');
+            }
         }
     }
     
     handleFileUpload(event) {
         const file = event.target.files[0];
         if (!file) return;
+        
+        console.log('File selected:', file.name);
         
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -342,37 +397,37 @@ class Game {
         reader.readAsText(file);
     }
     
-processWorksheet(worksheet) {
-    console.log('Processing worksheet:', worksheet); // DEBUG
-    
-    // Validate worksheet
-    const validation = Utils.validateWorksheet(worksheet);
-    if (!validation.valid) {
-        console.error('Validation errors:', validation.errors);
-        Utils.showToast('Invalid worksheet: ' + validation.errors[0], 'error');
-        return;
+    processWorksheet(worksheet) {
+        console.log('Processing worksheet:', worksheet);
+        
+        // Validate worksheet
+        const validation = Utils.validateWorksheet(worksheet);
+        if (!validation.valid) {
+            console.error('Validation errors:', validation.errors);
+            Utils.showToast('Invalid worksheet: ' + validation.errors[0], 'error');
+            return;
+        }
+        
+        console.log('Validation passed!');
+        
+        // Load worksheet into state
+        this.state.loadWorksheet(worksheet);
+        
+        console.log('Worksheet loaded into state');
+        
+        // Display worksheet info
+        this.displayWorksheetInfo(worksheet);
+        
+        console.log('Worksheet info displayed');
+        
+        // Show game settings
+        this.elements.worksheetInfo.classList.remove('hidden');
+        this.elements.gameSettings.classList.remove('hidden');
+        
+        console.log('Settings shown');
+        
+        Utils.showToast('Worksheet loaded successfully!', 'success');
     }
-    
-    console.log('Validation passed!'); // DEBUG
-    
-    // Load worksheet into state
-    this.state.loadWorksheet(worksheet);
-    
-    console.log('Worksheet loaded into state'); // DEBUG
-    
-    // Display worksheet info
-    this.displayWorksheetInfo(worksheet);
-    
-    console.log('Worksheet info displayed'); // DEBUG
-    
-    // Show game settings
-    this.elements.worksheetInfo.classList.remove('hidden');
-    this.elements.gameSettings.classList.remove('hidden');
-    
-    console.log('Settings shown'); // DEBUG
-    
-    Utils.showToast('Worksheet loaded successfully!', 'success');
-}
     
     displayWorksheetInfo(worksheet) {
         this.elements.wsTitle.textContent = worksheet.title;
@@ -380,9 +435,13 @@ processWorksheet(worksheet) {
         this.elements.wsLevel.textContent = worksheet.level || 'Not specified';
         this.elements.wsCount.textContent = worksheet.words.length;
         this.elements.wsDescription.textContent = worksheet.description || '';
+        
+        console.log('Worksheet info updated in UI');
     }
     
     startGame() {
+        console.log('=== STARTING GAME ===');
+        
         // Save settings
         this.saveSettings();
         
@@ -390,9 +449,14 @@ processWorksheet(worksheet) {
         this.state.timerDuration = parseInt(this.elements.timerDuration.value);
         this.state.gameMode = this.elements.gameMode.value;
         
+        console.log('Timer duration:', this.state.timerDuration);
+        console.log('Game mode:', this.state.gameMode);
+        
         // Prepare game
         this.state.reset();
         this.state.prepareWords();
+        
+        console.log('Words prepared:', this.state.currentWords.length);
         
         if (this.state.currentWords.length === 0) {
             Utils.showToast('No words available for selected mode', 'error');
@@ -401,20 +465,37 @@ processWorksheet(worksheet) {
         
         // Update UI
         this.elements.totalRounds.textContent = this.state.currentWords.length;
+        this.elements.currentRound.textContent = '1';
+        this.elements.score.textContent = '0';
+        
+        console.log('UI updated');
         
         // Show game screen
         this.showScreen('game');
         
+        console.log('Game screen shown');
+        
         // Display first word
         this.displayCurrentWord();
         
+        console.log('First word displayed');
+        
         // Start timer
         this.state.startTimer();
+        
+        console.log('Timer started');
+        console.log('=== GAME STARTED ===');
     }
     
     displayCurrentWord() {
         const word = this.state.getCurrentWord();
-        if (!word) return;
+        console.log('Displaying word:', word);
+        
+        if (!word) {
+            console.error('No word to display!');
+            Utils.showToast('Error: No word available', 'error');
+            return;
+        }
         
         // Update round counter
         this.elements.currentRound.textContent = this.state.currentWordIndex + 1;
@@ -437,6 +518,8 @@ processWorksheet(worksheet) {
         
         // Update score
         this.elements.score.textContent = this.state.score;
+        
+        console.log('Word display complete');
     }
     
     displayKeywords(keywords) {
@@ -459,9 +542,12 @@ processWorksheet(worksheet) {
             this.elements.describerView.classList.add('hidden');
             this.elements.guesserView.classList.remove('hidden');
         }
+        
+        console.log('View toggled. Describer view:', this.state.isDescriberView);
     }
     
     handleCorrect() {
+        console.log('Correct answer!');
         this.state.stopTimer();
         this.state.recordResult(true);
         
@@ -479,6 +565,7 @@ processWorksheet(worksheet) {
     }
     
     handleSkip() {
+        console.log('Word skipped');
         this.state.stopTimer();
         this.state.recordResult(false);
         
@@ -513,6 +600,7 @@ processWorksheet(worksheet) {
     }
     
     showResults() {
+        console.log('Showing results');
         this.showScreen('results');
         
         // Calculate stats
@@ -582,6 +670,7 @@ processWorksheet(worksheet) {
             screen.classList.remove('active');
         });
         this.screens[screenName].classList.add('active');
+        console.log('Screen changed to:', screenName);
     }
 }
 
