@@ -771,6 +771,34 @@ footer a:hover {
 }
 
 /* ===========================
+   Subject Section Styling
+   =========================== */
+
+.subject-section {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius);
+}
+
+.subject-header {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 3px solid var(--primary-color);
+    text-align: center;
+}
+
+.subject-section .worksheet-btn {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+    text-align: left;
+    justify-content: flex-start;
+}
+
+/* ===========================
    Responsive Design
    =========================== */
 
