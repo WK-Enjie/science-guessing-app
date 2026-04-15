@@ -342,27 +342,37 @@ class Game {
         reader.readAsText(file);
     }
     
-    processWorksheet(worksheet) {
-        // Validate worksheet
-        const validation = Utils.validateWorksheet(worksheet);
-        if (!validation.valid) {
-            console.error('Validation errors:', validation.errors);
-            Utils.showToast('Invalid worksheet: ' + validation.errors[0], 'error');
-            return;
-        }
-        
-        // Load worksheet into state
-        this.state.loadWorksheet(worksheet);
-        
-        // Display worksheet info
-        this.displayWorksheetInfo(worksheet);
-        
-        // Show game settings
-        this.elements.worksheetInfo.classList.remove('hidden');
-        this.elements.gameSettings.classList.remove('hidden');
-        
-        Utils.showToast('Worksheet loaded successfully!', 'success');
+processWorksheet(worksheet) {
+    console.log('Processing worksheet:', worksheet); // DEBUG
+    
+    // Validate worksheet
+    const validation = Utils.validateWorksheet(worksheet);
+    if (!validation.valid) {
+        console.error('Validation errors:', validation.errors);
+        Utils.showToast('Invalid worksheet: ' + validation.errors[0], 'error');
+        return;
     }
+    
+    console.log('Validation passed!'); // DEBUG
+    
+    // Load worksheet into state
+    this.state.loadWorksheet(worksheet);
+    
+    console.log('Worksheet loaded into state'); // DEBUG
+    
+    // Display worksheet info
+    this.displayWorksheetInfo(worksheet);
+    
+    console.log('Worksheet info displayed'); // DEBUG
+    
+    // Show game settings
+    this.elements.worksheetInfo.classList.remove('hidden');
+    this.elements.gameSettings.classList.remove('hidden');
+    
+    console.log('Settings shown'); // DEBUG
+    
+    Utils.showToast('Worksheet loaded successfully!', 'success');
+}
     
     displayWorksheetInfo(worksheet) {
         this.elements.wsTitle.textContent = worksheet.title;
