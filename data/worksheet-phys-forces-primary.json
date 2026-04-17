@@ -1,0 +1,146 @@
+{
+  "title": "Forces and Motion",
+  "subject": "Physics",
+  "level": "Primary School - Singapore Syllabus",
+  "description": "Understanding basic forces, friction, magnetism, gravity, and springs with descriptive terms",
+  "words": [
+    {
+      "target": "FORCE",
+      "keywords": ["push", "pull", "motion", "change", "start", "stop"],
+      "difficulty": "easy",
+      "hint": "A push or pull on an object"
+    },
+    {
+      "target": "FRICTION",
+      "keywords": ["opposes", "motion", "surfaces", "rubbing", "resistance", "slows"],
+      "difficulty": "medium",
+      "hint": "Force that opposes motion between surfaces"
+    },
+    {
+      "target": "GRAVITATIONAL FORCE",
+      "keywords": ["pull", "Earth", "downward", "weight", "falls", "attraction"],
+      "difficulty": "medium",
+      "hint": "Force that pulls objects toward Earth"
+    },
+    {
+      "target": "MAGNETIC FORCE",
+      "keywords": ["magnets", "attract", "repel", "poles", "iron", "distance"],
+      "difficulty": "medium",
+      "hint": "Force from magnets that can attract or repel"
+    },
+    {
+      "target": "MAGNETIC ATTRACTION",
+      "keywords": ["magnets", "pull", "together", "opposite", "poles", "closer"],
+      "difficulty": "medium",
+      "hint": "When magnets pull toward each other"
+    },
+    {
+      "target": "MAGNETIC REPULSION",
+      "keywords": ["magnets", "push", "apart", "same", "poles", "away"],
+      "difficulty": "medium",
+      "hint": "When magnets push away from each other"
+    },
+    {
+      "target": "OPPOSES MOTION",
+      "keywords": ["against", "direction", "slows", "friction", "resistance", "opposite"],
+      "difficulty": "medium",
+      "hint": "Acts against the direction of movement"
+    },
+    {
+      "target": "BETWEEN SURFACES",
+      "keywords": ["contact", "touching", "two", "objects", "rubbing", "friction"],
+      "difficulty": "easy",
+      "hint": "Where two objects touch each other"
+    },
+    {
+      "target": "SLOW DOWN",
+      "keywords": ["reduce", "speed", "friction", "decelerate", "stop", "slower"],
+      "difficulty": "easy",
+      "hint": "To reduce speed or become slower"
+    },
+    {
+      "target": "SPEED UP",
+      "keywords": ["faster", "accelerate", "increase", "speed", "force", "motion"],
+      "difficulty": "easy",
+      "hint": "To move faster or increase speed"
+    },
+    {
+      "target": "TEXTURE",
+      "keywords": ["surface", "rough", "smooth", "feel", "friction", "bumpy"],
+      "difficulty": "medium",
+      "hint": "How rough or smooth a surface feels"
+    },
+    {
+      "target": "ROUGH SURFACE",
+      "keywords": ["bumpy", "uneven", "more", "friction", "texture", "not smooth"],
+      "difficulty": "easy",
+      "hint": "Uneven surface that creates more friction"
+    },
+    {
+      "target": "SMOOTH SURFACE",
+      "keywords": ["flat", "even", "less", "friction", "texture", "slippery"],
+      "difficulty": "easy",
+      "hint": "Even surface that creates less friction"
+    },
+    {
+      "target": "LUBRICANT",
+      "keywords": ["reduce", "friction", "oil", "grease", "smooth", "slippery"],
+      "difficulty": "medium",
+      "hint": "Substance used to reduce friction"
+    },
+    {
+      "target": "ELASTIC",
+      "keywords": ["stretch", "returns", "shape", "spring", "rubber", "bounces back"],
+      "difficulty": "easy",
+      "hint": "Material that returns to original shape after stretching"
+    },
+    {
+      "target": "ELASTIC SPRING FORCE",
+      "keywords": ["spring", "stretched", "compressed", "pulls back", "restore", "returns"],
+      "difficulty": "medium",
+      "hint": "Force from a spring trying to return to original length"
+    },
+    {
+      "target": "EXTENSION",
+      "keywords": ["stretch", "longer", "length", "increase", "spring", "pull"],
+      "difficulty": "medium",
+      "hint": "Increase in length when an object is stretched"
+    },
+    {
+      "target": "COMPRESSION",
+      "keywords": ["squeeze", "shorter", "push", "together", "spring", "compress"],
+      "difficulty": "medium",
+      "hint": "Making something shorter by squeezing"
+    },
+    {
+      "target": "SPRING LENGTH",
+      "keywords": ["size", "original", "stretched", "compressed", "measure", "distance"],
+      "difficulty": "easy",
+      "hint": "The length of a spring"
+    },
+    {
+      "target": "STIFFNESS",
+      "keywords": ["hard", "stretch", "force", "spring", "rigid", "difficult"],
+      "difficulty": "medium",
+      "hint": "How difficult it is to stretch or compress"
+    },
+    {
+      "target": "OVERCOME",
+      "keywords": ["greater", "force", "beat", "stronger", "move", "oppose"],
+      "difficulty": "medium",
+      "hint": "To use a greater force to defeat another force"
+    },
+    {
+      "target": "DIRECTION",
+      "keywords": ["way", "path", "towards", "motion", "moving", "angle"],
+      "difficulty": "easy",
+      "hint": "The path or way something is moving"
+    },
+    {
+      "target": "STRENGTH OF FORCE",
+      "keywords": ["strong", "weak", "power", "magnitude", "size", "amount"],
+      "difficulty": "medium",
+      "hint": "How strong or weak a force is"
+    }
+  ]
+}
